@@ -28,7 +28,7 @@ class Observable {
         this.observers = this.observers.filter(ob => ob !== observer);
     }
     notify() {
-        console.log('notifying observables of updated state')
+        console.log('notifying observables')
         this.observers.forEach(observer => observer.update())
     }
 }
@@ -38,7 +38,7 @@ class ObserverA {
         this.observableRef = observableRef;
     }
     update() {
-        console.log('updating observerA')
+        console.log('updating ObserverA')
         let newState = this.observableRef.state;
         // ...
     }

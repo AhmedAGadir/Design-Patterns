@@ -20,7 +20,7 @@
 
 // ***** useful when: *****
 // you want to make spin-offs of your components or wrap them with additional functioanlity
-// where you can return, augment, or even block component behaviour
+// where you can return/augment/block component behaviour
 // multiple decorators can wrap a component, each of which introducing completely different effects
 
 // note: the decorator IS a component, but it also HAS a component
@@ -144,14 +144,14 @@ class FixedSizeDecorator extends ShapeDecorator {
 }
 
 var roundedBlueCircle = new BorderRadiusDecorator(new BackgroundColorDecorator(new Circle(), 'blue'), '5px');
-roundedBlueCircle.getDesc();
-roundedBlueCircle.isHide();
-roundedBlueCircle.resize();
+console.log(roundedBlueCircle.getDesc());
+console.log(roundedBlueCircle.isHide());
+console.log(roundedBlueCircle.resize());
 
 var redFixedSquare = new BackgroundColorDecorator(new FixedSizeDecorator(new Square()), 'red');
-redFixedSquare.getDesc();
-redFixedSquare.isHide();
-redFixedSquare.resize();
+console.log(redFixedSquare.getDesc());
+console.log(redFixedSquare.isHide());
+console.log(redFixedSquare.resize());
 
 
 

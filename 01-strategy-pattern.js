@@ -14,17 +14,17 @@
 
 class StrategyA {
     doSomething() {
-        console.log('does something')
+        console.log('does something');
     }
 }
 class StrategyB {
     doSomething() {
-        console.log('does something different')
+        console.log('does something different');
     }
 }
 class StrategyC {
     doSomething() {
-        console.log('does something very different')
+        console.log('does something very different');
     }
 }
 
