@@ -66,8 +66,8 @@ myObservable.register([observerA, observerB, observerC]);
 setTimeout(() => myObservable.unregister(observerA), 10000);
 
 
-// another option would be to pass the relevant information when invoking each observers update method,
-// this way the observers wont need a reference to the observable
+// another variation of this pattern passes the relevant information to the observers when invoking their update methods,
+// this way the observers dont require a reference to the observable
 
 
 // links 
