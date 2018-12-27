@@ -17,3 +17,10 @@
 
 // For this reason, the Decorator pattern is less relevant to JavaScript developers. In JavaScript the Extend and 
 // Mixin patterns subsume the Decorator pattern.
+
+// my own words:
+// decorator pattern is useful when you want to make spin offs on your own code
+// spin offs where you can augment/block/return data from the component 
+// decorators can wrap other decorators, but at the center of it all there needs to be a proper component (class)
+
+
