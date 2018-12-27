@@ -4,7 +4,7 @@
 
 // Encapsulates algorithms within classes, making them interchangable and more reusable 
 
-// useful when (my own words): 
+// ***** useful when (my own words): ***** 
 // you want to swap out different algorithms within a client at run time 
 
 // note: the different strategies are normally set on the clients constructor or using some kind of setter 

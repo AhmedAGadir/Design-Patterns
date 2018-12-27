@@ -18,9 +18,9 @@
 // For this reason, the Decorator pattern is less relevant to JavaScript developers. In JavaScript the Extend and 
 // Mixin patterns subsume the Decorator pattern.
 
-// useful when:
+// ***** useful when: *****
 // you want to make spin-offs of your components or wrap them with additional functioanlity
-// where you can augment/block/return data as is from said components
+// where you can return, augment, or even block component behaviour
 // multiple decorators can wrap a component, each of which introducing completely different effects
 
 // note: the decorator IS a component, but it also HAS a component
@@ -28,50 +28,48 @@
 
 // Example
 
-// in an object-oriented language, Shape and ShapeDecorators would be abstract classes 
+// in an object-oriented language, Shape and ShapeDecorators would be abstract classes or interfaces 
+// abstract classes are like interfaces, but allow predefined behaviour 
+// abstract classes are never instantiated 
+
 
 // ======================= ABSTRACT COMPONENT / INTERFACE =======================
-// pretend Shape is an abstract class (like an interface but with some pre-defined behaviour) -> could have also used an interface (if we had them in javascript) and then also defined isHide() on every shape 
+// pretend this is an abstract class 
 class Shape {
-    draw() {
+    getDesc() {
         // overridden
     }
     resize() {
-        // overridden
-    }
-    getDesc() {
-        // overridden
+        // overridden 
     }
     isHide() {
         return false;
     }
 }
 
+// ======================= CONCRETE COMPONENTS =======================
 class Circle extends Shape {
-    draw() {
-        return 'Drawing Circle';
+    getDesc() {
+        return 'Circle'
     }
     resize() {
-        return 'Resizing Circle';
-    }
-    getDesc() {
-        return 'Circle';
+        return 'increasing shape size'
     }
 }
 
 class Square extends Shape {
-    draw() {
-        return 'Drawing Square';
-    }
-    resize() {
-        return 'Resizing Square';
-    }
     getDesc() {
         return 'Square';
     }
+    resize() {
+        return 'decreasing shape size'
+    }
 }
 
-
+// ======================= ABSTRACT DECORATOR  =======================
+// this is a slightly different variation from the one showed in HFDP, i think this one makes more sense as the HF example didnt actually do anything (chris confirmed this)
+// if you want to use an interface instead of an abstract class here, then each ShapeDecorator would need a constructor setting this.decoratedShape = decoratedShape
+// pretend this is an abstract class
 class ShapeDecorator extends Shape {
     constructor(decoratedShape) {
         super();
@@ -79,11 +77,82 @@ class ShapeDecorator extends Shape {
     }
 }
 
-class BackgroundDecorator extends ShapeDecorator {
-    constructor(decoratedShape, color) {
-
+// ======================= CONCRETE DECORATORS =======================
+// these can vary wildly in how they wrap components
+// they can return, augment, or even block component behaviour
+class BackgroundColorDecorator extends ShapeDecorator {
+    constructor(decoratedShape, backgroundColor) {
+        super(decoratedShape);
+        this.backgroundColor = backgroundColor;
+    }
+    // augments behaviour 
+    getDesc() {
+        return this.decoratedShape.getDesc() + ', backgroundColor: ' + this.backgroundColor;
+    }
+    // with this pattern, you need to specify all method on every decorators even if your just returning a behaviour as is 
+    // (you dont want to traverse the prototype chain, you want to use the behaviour of whatever it is your wrapping)
+    // returns wrapped behaviour 
+    resize() {
+        return this.decoratedShape.resize();
+    }
+    // returns wrapped behaviour 
+    isHide() {
+        return this.decoratedShape.isHide();
     }
 }
+
+class BorderRadiusDecorator extends ShapeDecorator {
+    constructor(decoratedShape, borderRadius) {
+        super(decoratedShape);
+        this.borderRadius = borderRadius;
+    }
+    // augments behaviour 
+    getDesc() {
+        return this.decoratedShape.getDesc() + ', borderRadius: ' + this.borderRadius;
+    }
+    // returns wrapped behaviour 
+    resize() {
+        return this.decoratedShape.resize();
+    }
+    // returns wrapped behaviour 
+    isHide() {
+        return this.decoratedShape.isHide();
+    }
+}
+
+class FixedSizeDecorator extends ShapeDecorator {
+    constructor(decoratedShape) {
+        super(decoratedShape);
+    }
+    // returns wrapped behaviour 
+    getDesc() {
+        return this.decoratedShape.getDesc();
+    }
+    // blocks behaviour 
+    resize() {
+        return 'this_shape_is_unresizable';
+    }
+    // returns wrapped behaviour 
+    isHide() {
+        return this.decoratedShape.isHide();
+    }
+    // introduces functionality
+    // not sure if this is a good idea as it only works when this decorator is the outermost one
+    // makeResizeable() {
+    //     this.resize = function() {return this.decoratedShape.resize()}
+    // }
+}
+
+var roundedBlueCircle = new BorderRadiusDecorator(new BackgroundColorDecorator(new Circle(), 'blue'), '5px');
+roundedBlueCircle.getDesc();
+roundedBlueCircle.isHide();
+roundedBlueCircle.resize();
+
+var redFixedSquare = new BackgroundColorDecorator(new FixedSizeDecorator(new Square()), 'red');
+redFixedSquare.getDesc();
+redFixedSquare.isHide();
+redFixedSquare.resize();
+
 
 
 

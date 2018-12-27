@@ -2,7 +2,7 @@
 
 // a one to many dependency between objects so that when one object changes state, all of its dependencies are notified and updated automatically
 
-// useful when:
+// ***** useful when: *****
 // you want to push notifications/changes in state in an object to one or more subscribers
 
 // pseudocode 
