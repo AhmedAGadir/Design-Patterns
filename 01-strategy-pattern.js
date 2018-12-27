@@ -4,9 +4,10 @@
 
 // Encapsulates algorithms within classes, making them interchangable and more reusable 
 
-// what it allows you to do (my own words):
-// the strategy pattern allows you to swap out different algorithms within a client at run time without it mattering to the client, 
-// the different strategies are normally set on the clients constructor, or using some kind of setter 
+// useful when (my own words): 
+// you want to swap out different algorithms within a client at run time 
+
+// note: the different strategies are normally set on the clients constructor or using some kind of setter 
 
 
 // ===== psuedo code =====
@@ -112,3 +113,5 @@ new Client(new StrategyC).doSomething();
 // https://www.youtube.com/watch?v=13nftsQUUE0&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3&index=1
 // https://www.youtube.com/watch?v=slfeCvztnT4&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3&index=2
 // https://www.dofactory.com/javascript/strategy-design-pattern
+// https://dzone.com/articles/design-patterns-strategy
+// https://sourcemaking.com/design_patterns/strategy 

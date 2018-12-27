@@ -20,12 +20,15 @@ class Observable {
         }, 1000)
     }
     register(observers) {
+        console.log('registering observables')
         this.observers.push(...observers)
     }
     unregister(observer) {
+        console.log('unregistering an observable')
         this.observers = this.observers.filter(ob => ob !== observer);
     }
     notify() {
+        console.log('notifying observables of updated state')
         this.observers.forEach(observer => observer.update())
     }
 }
@@ -35,8 +38,9 @@ class ObserverA {
         this.observableRef = observableRef;
     }
     update() {
-        let newState = this.observableRef.state;
         console.log('updating observerA')
+        let newState = this.observableRef.state;
+        // ...
     }
 }
 class ObserverB {
@@ -44,8 +48,9 @@ class ObserverB {
         this.observableRef = observableRef;
     }
     update() {
-        let newState = this.observableRef.state;
         console.log('updating ObserverB')
+        let newState = this.observableRef.state;
+        // ...
     }
 }
 class ObserverC {
@@ -53,8 +58,9 @@ class ObserverC {
         this.observableRef = observableRef;
     }
     update() {
-        let newState = this.observableRef.state;
         console.log('updating ObserverC')
+        let newState = this.observableRef.state;
+        // ...
     }
 }
 
@@ -63,10 +69,7 @@ let observerA = new ObserverA(myObservable);
 let observerB = new ObserverB(myObservable);
 let observerC = new ObserverC(myObservable);
 myObservable.register([observerA, observerB, observerC]);
-setTimeout(() => {
-    console.log('unregistering observerA')
-    myObservable.unregister(observerA)
-}, 3000);
+setTimeout(() => myObservable.unregister(observerA), 3000);
 
 
 // another variation of this pattern passes the relevant information to the observers when invoking their update methods,
@@ -75,4 +78,5 @@ setTimeout(() => {
 
 // links 
 // https://www.youtube.com/watch?v=_BpmfnqjgzQ&index=2&list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc
+// https://www.dofactory.com/javascript/observer-design-pattern
 // [havent watched] https://www.youtube.com/watch?v=xU3oPZUf4Uw&index=3&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3

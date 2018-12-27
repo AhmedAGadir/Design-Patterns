@@ -18,9 +18,88 @@
 // For this reason, the Decorator pattern is less relevant to JavaScript developers. In JavaScript the Extend and 
 // Mixin patterns subsume the Decorator pattern.
 
-// my own words:
-// decorator pattern is useful when you want to make spin offs on your own code
-// spin offs where you can augment/block/return data from the component 
-// decorators can wrap other decorators, but at the center of it all there needs to be a proper component (class)
+// useful when:
+// you want to make spin-offs of your components or wrap them with additional functioanlity
+// where you can augment/block/return data as is from said components
+// multiple decorators can wrap a component, each of which introducing completely different effects
+
+// note: the decorator IS a component, but it also HAS a component
 
 
+// Example
+
+// in an object-oriented language, Shape and ShapeDecorators would be abstract classes 
+
+// ======================= ABSTRACT COMPONENT / INTERFACE =======================
+// pretend Shape is an abstract class (like an interface but with some pre-defined behaviour) -> could have also used an interface (if we had them in javascript) and then also defined isHide() on every shape 
+class Shape {
+    draw() {
+        // overridden
+    }
+    resize() {
+        // overridden
+    }
+    getDesc() {
+        // overridden
+    }
+    isHide() {
+        return false;
+    }
+}
+
+class Circle extends Shape {
+    draw() {
+        return 'Drawing Circle';
+    }
+    resize() {
+        return 'Resizing Circle';
+    }
+    getDesc() {
+        return 'Circle';
+    }
+}
+
+class Square extends Shape {
+    draw() {
+        return 'Drawing Square';
+    }
+    resize() {
+        return 'Resizing Square';
+    }
+    getDesc() {
+        return 'Square';
+    }
+}
+
+
+class ShapeDecorator extends Shape {
+    constructor(decoratedShape) {
+        super();
+        this.decoratedShape = decoratedShape;
+    }
+}
+
+class BackgroundDecorator extends ShapeDecorator {
+    constructor(decoratedShape, color) {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// links 
+// https://www.dofactory.com/javascript/decorator-design-pattern
+// https://dzone.com/articles/decorator-design-pattern-in-java
