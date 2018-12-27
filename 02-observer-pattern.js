@@ -14,6 +14,7 @@ class Observable {
             valuableInfo: 'none lol'
         }
         setInterval(() => {
+            console.log('updating state')
             this.state.valuableInfo = Math.floor(Math.random() * 999);
             this.notify();
         }, 1000)
@@ -29,40 +30,45 @@ class Observable {
     }
 }
 
-class ObserverOne {
+class ObserverA {
     constructor(observableRef) {
         this.observableRef = observableRef;
     }
     update() {
-        let newStateInfo = this.observableRef.state.valuableInfo;
-        console.log('ObserverOne notified lol', newStateInfo)
+        let newState = this.observableRef.state;
+        console.log('updating observerA lol')
     }
 }
-class ObserverTwo {
+class ObserverB {
     constructor(observableRef) {
         this.observableRef = observableRef;
     }
     update() {
-        let newStateInfo = this.observableRef.state.valuableInfo;
-        console.log('ObserverTwo notified lmao', newStateInfo)
+        let newState = this.observableRef.state;
+        console.log('updating ObserverB lmao')
     }
 }
-class ObserverThree {
+class ObserverC {
     constructor(observableRef) {
         this.observableRef = observableRef;
     }
     update() {
-        let newStateInfo = this.observableRef.state.valuableInfo;
-        console.log('ObserverThree notified rofl', newStateInfo)
+        let newState = this.observableRef.state;
+        console.log('updating ObserverC rofl')
     }
 }
 
-let observable = new Observable();
-let observerOne = new ObserverOne(observable);
-let observerTwo = new ObserverTwo(observable);
-let observerThree = new ObserverThree(observable);
-observable.register([observerOne, observerTwo, observerThree]);
-setTimeout(() => observable.unregister(observerOne), 10000);
+let myObservable = new Observable();
+let observerA = new ObserverA(myObservable);
+let observerB = new ObserverB(myObservable);
+let observerC = new ObserverC(myObservable);
+myObservable.register([observerA, observerB, observerC]);
+setTimeout(() => myObservable.unregister(observerA), 10000);
+
+
+// another option would be to pass the relevant information when invoking each observers update method,
+// this way the observers wont need a reference to the observable
+
 
 // links 
 // https://www.youtube.com/watch?v=_BpmfnqjgzQ&index=2&list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc
