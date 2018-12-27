@@ -11,11 +11,11 @@ class Observable {
     constructor() {
         this.observers = [];
         this.state = {
-            valuableInfo: 'none lol'
+            value: 0
         }
         setInterval(() => {
             console.log('updating state')
-            this.state.valuableInfo = Math.floor(Math.random() * 999);
+            this.state.value++;
             this.notify();
         }, 1000)
     }
@@ -36,7 +36,7 @@ class ObserverA {
     }
     update() {
         let newState = this.observableRef.state;
-        console.log('updating observerA lol')
+        console.log('updating observerA')
     }
 }
 class ObserverB {
@@ -45,7 +45,7 @@ class ObserverB {
     }
     update() {
         let newState = this.observableRef.state;
-        console.log('updating ObserverB lmao')
+        console.log('updating ObserverB')
     }
 }
 class ObserverC {
@@ -54,7 +54,7 @@ class ObserverC {
     }
     update() {
         let newState = this.observableRef.state;
-        console.log('updating ObserverC rofl')
+        console.log('updating ObserverC')
     }
 }
 
@@ -63,7 +63,10 @@ let observerA = new ObserverA(myObservable);
 let observerB = new ObserverB(myObservable);
 let observerC = new ObserverC(myObservable);
 myObservable.register([observerA, observerB, observerC]);
-setTimeout(() => myObservable.unregister(observerA), 10000);
+setTimeout(() => {
+    console.log('unregistering observerA')
+    myObservable.unregister(observerA)
+}, 3000);
 
 
 // another variation of this pattern passes the relevant information to the observers when invoking their update methods,
