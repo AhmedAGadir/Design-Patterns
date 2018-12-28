@@ -152,14 +152,21 @@ class FixedSizeDecorator extends ShapeDecorator {
 
 
 var roundedBlueCircle = new BorderRadiusDecorator(new BackgroundColorDecorator(new Circle(), 'blue'), '5px');
+console.group('[roundedBlueCircle]')
 console.log(roundedBlueCircle.getDesc());
 console.log(roundedBlueCircle.isHide());
 console.log(roundedBlueCircle.resize());
-
-var redFixedSquare = new BackgroundColorDecorator(new FixedSizeDecorator(new Square()), 'red');
+console.groupEnd('[roundedBlueCircle]')
+var redFixedSquare;
+redFixedSquare = new Square();
+redFixedSquare = new FixedSizeDecorator(redFixedSquare);
+redFixedSquare = new BackgroundColorDecorator(redFixedSquare, 'red');
+console.group('[redFixedSquare]')
 console.log(redFixedSquare.getDesc());
 console.log(redFixedSquare.isHide());
 console.log(redFixedSquare.resize());
+console.groupEnd('[redFixedSquare]')
+
 
 
 
