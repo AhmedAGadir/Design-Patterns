@@ -156,7 +156,8 @@ console.group('[roundedBlueCircle]')
 console.log(roundedBlueCircle.getDesc());
 console.log(roundedBlueCircle.isHide());
 console.log(roundedBlueCircle.resize());
-console.groupEnd('[roundedBlueCircle]')
+console.groupEnd('[roundedBlueCircle]');
+
 var redFixedSquare;
 redFixedSquare = new Square();
 redFixedSquare = new FixedSizeDecorator(redFixedSquare);
