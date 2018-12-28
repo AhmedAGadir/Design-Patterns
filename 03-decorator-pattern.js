@@ -19,8 +19,7 @@
 // Mixin patterns subsume the Decorator pattern.
 
 // ***** useful when: *****
-// you want to make spin-offs of your components or wrap them with additional functioanlity
-// where you can return/augment/block component behaviour
+// you want to wrap your components with additional functioanlity where you can return/augment/block component behaviour
 // multiple decorators can wrap a component, each of which introducing completely different effects
 
 // note: the decorator IS a component, but it also HAS a component
@@ -37,10 +36,10 @@
 // pretend this is an abstract class 
 class Shape {
     getDesc() {
-        // overridden
+        // fake abstract method (must be specified in subclass)
     }
     resize() {
-        // overridden 
+        // fake abstract method (must be specified in subclass)
     }
     isHide() {
         return false;
@@ -66,6 +65,15 @@ class Square extends Shape {
     }
 }
 
+class Triangle extends Shape {
+    getDesc() {
+        return 'Triangle';
+    }
+    resize() {
+        return 'decreasing shape size'
+    }
+}
+
 // ======================= ABSTRACT DECORATOR  =======================
 // this is a slightly different variation from the one showed in HFDP, i think this one makes more sense as the HF example didnt actually do anything (chris confirmed this)
 // if you want to use an interface instead of an abstract class here, then each ShapeDecorator would need a constructor setting this.decoratedShape = decoratedShape
@@ -78,8 +86,6 @@ class ShapeDecorator extends Shape {
 }
 
 // ======================= CONCRETE DECORATORS =======================
-// these can vary wildly in how they wrap components
-// they can return, augment, or even block component behaviour
 class BackgroundColorDecorator extends ShapeDecorator {
     constructor(decoratedShape, backgroundColor) {
         super(decoratedShape);
@@ -143,6 +149,8 @@ class FixedSizeDecorator extends ShapeDecorator {
     // }
 }
 
+
+
 var roundedBlueCircle = new BorderRadiusDecorator(new BackgroundColorDecorator(new Circle(), 'blue'), '5px');
 console.log(roundedBlueCircle.getDesc());
 console.log(roundedBlueCircle.isHide());
@@ -152,20 +160,6 @@ var redFixedSquare = new BackgroundColorDecorator(new FixedSizeDecorator(new Squ
 console.log(redFixedSquare.getDesc());
 console.log(redFixedSquare.isHide());
 console.log(redFixedSquare.resize());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
