@@ -1,5 +1,3 @@
-// pseudocode 
-
 class Observable {
     constructor() {
         this.observers = [];
