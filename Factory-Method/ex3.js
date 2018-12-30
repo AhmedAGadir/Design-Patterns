@@ -99,7 +99,8 @@ let userB = {
     email: 'tonykroos@realmadrid.de'
 }
 
-let membershipFactory = new UKMembershipFactory();
-membershipFactory.addMember('trial', userA);
-membershipFactory = new GermanMembershipFactory();
-membershipFactory.addMember('trial', userB);
+let ukMembershipFactory = new UKMembershipFactory();
+ukMembershipFactory.addMember('trial', userA);
+
+let germanMembershipFactory = new GermanMembershipFactory();
+germanMembershipFactory.addMember('trial', userB);
