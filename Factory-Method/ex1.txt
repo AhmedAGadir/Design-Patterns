@@ -2,7 +2,9 @@
 //  ABSTRACT CREATOR SUPERCLASS
 
 class Dialog {
-    createButton() { /* abstract method */ }
+    createButton() { 
+        // abstract method 
+    }
     render() {
         let okButton = createButton();
         okButton.onClick(closeDialog);
@@ -13,30 +15,42 @@ class Dialog {
 // CONCRETE CREATOR SUBCLASS
 
 class WindowsDialog extends Dialog {
-    createButton = () => new WindowsButton();
+    createButton() {
+        return new WindowsButton();
+    }
 }
 
 class WebDialog extends Dialog {
-    createButton = () => new HTMLButton();
+    createButton() {
+        return new HTMLButton();
+    }
 }
 
 //  PRODUCT INTERFACE 
 
 interface Button {
     method onClick()
-method render()
+    method render()
 }
 
 // CONCRETE PRODUCT IMPLEMENTATION 
 
 class WindowsButton implements Button {
-    render() { /* render to screen */ }
-    onClick() { /* do something */ }
+    render() { 
+        // render to screen
+    }
+    onClick() { 
+        // do something 
+    }
 }
 
 class HTMLButton implements Button {
-    render() { /* render to screen */ }
-    onClick() { /* do something */ }
+    render() { 
+        // render to screen
+    }
+    onClick() { 
+        // do something 
+    }
 }
 
 // RUN CODE
