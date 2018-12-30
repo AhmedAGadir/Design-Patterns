@@ -77,7 +77,7 @@ class Pizza {
     }
 }
 
-// PRODUCT SUBCLASSES
+// CONCRETE PRODUCT SUBCLASSES
 
 class NYStyleCheesePizza extends Pizza {
     constructor() {
