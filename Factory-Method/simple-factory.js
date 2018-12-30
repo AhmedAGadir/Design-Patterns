@@ -49,24 +49,16 @@ public interface IItem {
 // ********* CONCRETE PRODUCT IMPLEMENTATIONS *********
 
 class AsteroidItem {
-    logEffect() {
-        console.log('i reduce health')
-    }
+    logEffect = () => console.log('i reduce health');
 }
 class HealthItem {
-    logEffect() {
-        console.log('i increase health')
-    }
+    logEffect = () => console.log('i increase health');
 }
 class WeaponItem {
-    logEffect() {
-        console.log('i improve shooting power/frequency/range')
-    }
+    logEffect = () => console.log('i improve shooting power/frequency/range');
 }
 class TimeItem {
-    logEffect() {
-        console.log('I add time to the clock')
-    }
+    logEffect = () => console.log('I add time to the clock')
 }
 
 

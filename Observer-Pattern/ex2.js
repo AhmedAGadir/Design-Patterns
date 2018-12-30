@@ -1,3 +1,6 @@
+
+//  from https://www.dofactory.com/javascript/observer-design-pattern
+
 function Click() {
     this.handlers = [];  // observers
 }
