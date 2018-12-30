@@ -1,4 +1,3 @@
-
 //  ABSTRACT CREATOR SUPERCLASS
 
 class Dialog {
