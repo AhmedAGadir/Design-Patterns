@@ -88,7 +88,6 @@ class PizzaStore {
     }
     orderPizza(type) {
         let pizza = this.createPizza(type);
-
         pizza.prepare();
         pizza.bake();
         pizza.cut();
@@ -130,7 +129,7 @@ class ChicagoPizzaStore extends PizzaStore {
     }
 }
 
-// ABSTRACT PRODUCT SUPERCLASS / INTERFACE
+// ABSTRACT PRODUCT SUPERCLASS
 
 class Pizza {
     constructor(name, dough, sauce) {
