@@ -19,15 +19,16 @@
 // Mixin patterns subsume the Decorator pattern.
 
 // ***** useful when: *****
-// you want to wrap your components with additional functioanlity where you can return/augment/block component behaviour
-// multiple decorators can wrap a component, each of which introducing completely different effects
+// you want to wrap your components with additional functioanlity where you can return/augment/block component behaviour multiple decorators can wrap a component, each of which introducing completely different effects
+// it’s awkward or not possible to extend an object’s behavior using inheritance.
 
 // note: the decorator IS a component, but it also HAS a component
 
 
+
 // Example
 
-// in an object-oriented language, Shape and ShapeDecorators would be abstract classes or interfaces 
+// in an object-oriented language, Shape and ShapeDecorator would be abstract classes or interfaces 
 // abstract classes are like interfaces, but allow predefined behaviour 
 // abstract classes are never instantiated 
 
@@ -36,10 +37,10 @@
 // pretend this is an abstract class 
 class Shape {
     getDesc() {
-        // fake abstract method (must be specified in subclass)
+        // abstract method (must be specified in subclass)
     }
     resize() {
-        // fake abstract method (must be specified in subclass)
+        // abstract method (must be specified in subclass)
     }
     isHide() {
         return false;
@@ -174,3 +175,4 @@ console.groupEnd('[redFixedSquare]')
 // links 
 // https://www.dofactory.com/javascript/decorator-design-pattern
 // https://dzone.com/articles/decorator-design-pattern-in-java
+// https://refactoring.guru/design-patterns/decorator

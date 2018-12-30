@@ -1,0 +1,20 @@
+Object Oriented Principles:
+
+1. Identify the aspects of your application that vary and seperate them from what stays the same
+this results in fewer unintended consequences from code changes and more flexibility in your systems
+
+2. Program to a supertype (interfaces and abstract super classes), not a concrete class type
+delare your variable type using their supertype (e.g. type 'Animal' instead of type 'Dog')
+then use methods available on said supertype, and not ones only available on the concrete class
+this creates more flexible code
+
+3. Favour composition over inheritence
+passing class references around can often be much better than using inheritance 
+said references can be passed in constructors or methods etc.
+( a lot, if not all, of the design patterns studied apply this principle)
+
+4. Strive for loosely coupled designs between objects that interact
+from HFDP: "Observers are loosely coupled in that the Observable knows nothing about them, other than that they implement the Observer interface"
+
+5. Open/Closed Principle: Classes should be open for extension, but closed for modification 
+this stops code from breaking, however it is impossible to achieve everywhwere

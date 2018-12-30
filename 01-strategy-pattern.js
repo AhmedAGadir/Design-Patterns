@@ -4,8 +4,11 @@
 
 // Encapsulates algorithms within classes, making them interchangable and more reusable 
 
-// ***** useful when (my own words): ***** 
-// you want to swap out different algorithms within a client at run time 
+// ***** useful when: ***** 
+// * you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime.
+// * you have a lot of similar classes that only differ in the way they execute some behavior.
+// * to isolate the business logic of a class from the implementation details of algorithms that may not be as important in the context of that logic.
+// * your class has a massive conditional operator that switches between different variants of the same algorithm.
 
 // note: the different strategies are normally set on the clients constructor or using some kind of setter 
 
@@ -113,5 +116,6 @@ new Client(new StrategyC).doSomething();
 // https://www.youtube.com/watch?v=13nftsQUUE0&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3&index=1
 // https://www.youtube.com/watch?v=slfeCvztnT4&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3&index=2
 // https://www.dofactory.com/javascript/strategy-design-pattern
+// https://refactoring.guru/design-patterns/strategy
 // https://dzone.com/articles/design-patterns-strategy
 // https://sourcemaking.com/design_patterns/strategy 
