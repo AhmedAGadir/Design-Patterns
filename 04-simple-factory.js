@@ -13,83 +13,73 @@
 // if there are a lot more objects and possibly different categories within those objects, then the factory method pattern is a good alternative
 
 // EXAMPLE
-// a space invaders game where obstacles (asteroids, health, rapidfire, time boosts etc) drop into the screen from the top and you shoot them;
-// tetris 
+// a space invaders game where items (asteroids, health, rapidfire, time boosts etc) drop into the screen from the top and you shoot them;
+// tetris (factory to create pieces, could have some logic in the factory so that not too many pieces of the same type are created at once etc)
 
 
-// ********* PRODUCTS *********
+// ********* CREATOR *********
 
-// product interface
-// public interface IProduct {
-//     public void logEffect()
-//     public void doubeSpeed()
-// }
+class ItemFactory {
+    addItem(type) {
+        let item = this.createItem(type);
+        item.logEffect();
+    }
+    createItem(type) {
+        switch (type) {
+            case 'asteroid':
+                return new AsteroidItem();
+            case 'health':
+                return new HealthItem();
+            case 'weapon':
+                return new WeaponItem();
+            case 'time':
+                return new TimeItem();
+        }
+    }
+}
 
-class AsteroidProduct {
+
+// ********* PRODUCT INTERFACE *********
+
+public interface IItem {
+    public void logEffect()
+    public void doubeSpeed()
+}
+
+// ********* CONCRETE PRODUCT IMPLEMENTATIONS *********
+
+class AsteroidItem {
     logEffect() {
         console.log('i reduce health')
     }
 }
-
-class HealthProduct {
+class HealthItem {
     logEffect() {
         console.log('i increase health')
     }
 }
-
-class WeaponProduct {
+class WeaponItem {
     logEffect() {
         console.log('i improve shooting power/frequency/range')
     }
 }
-
-class TimeProduct {
+class TimeItem {
     logEffect() {
         console.log('I add time to the clock')
     }
 }
 
-// ********* CREATOR *********
-
-class ProductFactory {
-    constructor() {
-        this.count = 0;
-        this.rareProducts = ['health', 'weapon', 'time']
-    }
-    addProduct() {
-        let product = this.createProduct();
-        product.logEffect();
-    }
-    createProduct() {
-        if (this.count < 3) {
-            this.count++;
-            return new AsteroidProduct();
-        } else {
-            this.count = 0
-            let randType = this.rareProducts[Math.floor(Math.random() * this.rareProducts.length)];
-            switch (randType) {
-                case 'health':
-                    return new HealthProduct();
-                case 'weapon':
-                    return new WeaponProduct();
-                case 'time':
-                    return new TimeProduct();
-            }
-        }
-    }
-}
 
 // ********* RUN CODE *********
 
-let productFactory = new ProductFactory();
+let factory = new ItemFactory();
+factory.addItem('asteroid');
+factory.addItem('time');
+factory.addItem('weapon');
+factory.addItem('health');
 
-let x = 0;
-while (x < 20) {
-    productFactory.addProduct();
-    x++
-}
 
-// you can also use the factory pattern statically;
-
+// you can also use the factory pattern statically (i.e. calling .addItem() directly on ItemFactory without any instantiation.
+// this would require ItemFactory to be modified by (1) making addItem a static method and (2) refactoring addItem so the 'this' keyboard is not used
 
 
