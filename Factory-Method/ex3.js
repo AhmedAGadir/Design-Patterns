@@ -5,9 +5,9 @@ class MembershipFactory {
         // abstract method
     }
     addMember(type, userInfo) {
-        let membership = this.createMembership(type);
+        let membership = this.createMembership(type, userInfo);
 
-        membership.register(userInfo);
+        membership.pushToRelevantDatabase();
         membership.sendConfirmationEmail();
         membership.printCard();
         membership.activate();
@@ -19,27 +19,27 @@ class MembershipFactory {
 //  CONCRETE CREATOR SUBCLASSES
 
 class UKMembershipFactory extends MembershipFactory {
-    createMembership(type) {
+    createMembership(type, userInfo) {
         switch (type) {
             case 'trial':
-                return new UKTrialMembership();
+                return new UKTrialMembership(userInfo);
             case 'monthly':
-                return new UKMonthlyMembership();
+                return new UKMonthlyMembership(userInfo);
             case 'anual':
-                return new UKAnualMembership();
+                return new UKAnualMembership(userInfo);
         }
     }
 }
 
 class GermanMembershipFactory extends MembershipFactory {
-    createMembership(type) {
+    createMembership(type, userInfo) {
         switch (type) {
             case 'trial':
-                return new GermanTrialMembership();
+                return new GermanTrialMembership(userInfo);
             case 'monthly':
-                return new GermanMonthlyMembership();
+                return new GermanMonthlyMembership(userInfo);
             case 'anual':
-                return new GermanAnualMembership();
+                return new GermanAnualMembership(userInfo);
         }
     }
 }
@@ -47,13 +47,12 @@ class GermanMembershipFactory extends MembershipFactory {
 //  ABSTRACT PRODUCT SUPERCLASS
 
 class Membership {
-    constructor(months, location) {
+    constructor(months, location, userInfo) {
         this.monthDuration = months;
         this.location = location;
-        this.userInfo = null;
-    }
-    register(userInfo) {
         this.userInfo = userInfo;
+    }
+    pushToRelevantDatabase() {
         console.log(`signing up ${this.userInfo.name} to our ${this.location} branch for ${this.monthDuration} months...`);
     }
     sendConfirmationEmail() {
@@ -70,17 +69,17 @@ class Membership {
 // CONCRETE PRODUCT SUBCLASSES
 
 class UKTrialMembership extends Membership {
-    constructor() {
-        super(3, 'UK')
+    constructor(userInfo) {
+        super(3, 'UK', userInfo)
     }
 }
 class UKMonthlyMembership extends Membership { }
 class UKAnualMembership extends Membership { }
 
 class GermanTrialMembership extends Membership {
-    constructor() {
+    constructor(userInfo) {
         // trial length is longer in germany
-        super(4, 'GERMANY')
+        super(4, 'GERMANY', userInfo)
     }
 }
 class GermanMonthlyMembership extends Membership { }
