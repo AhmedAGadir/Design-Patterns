@@ -7,7 +7,7 @@ class MembershipFactory {
     addMember(type, userInfo) {
         let membership = this.createMembership(type, userInfo);
 
-        membership.pushToRelevantDatabase();
+        membership.pushToDatabase();
         membership.sendConfirmationEmail();
         membership.printCard();
         membership.activate();
@@ -52,7 +52,7 @@ class Membership {
         this.location = location;
         this.userInfo = userInfo;
     }
-    pushToRelevantDatabase() {
+    pushToDatabase() {
         console.log(`signing up ${this.userInfo.name} to our ${this.location} branch for ${this.monthDuration} months...`);
     }
     sendConfirmationEmail() {
