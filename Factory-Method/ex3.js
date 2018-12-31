@@ -70,7 +70,7 @@ class Membership {
 
 class UKTrialMembership extends Membership {
     constructor(userInfo) {
-        super(3, 'UK', userInfo)
+        super(3, 'UK', userInfo);
     }
 }
 class UKMonthlyMembership extends Membership { }
@@ -79,7 +79,7 @@ class UKAnualMembership extends Membership { }
 class GermanTrialMembership extends Membership {
     constructor(userInfo) {
         // trial length is longer in germany
-        super(4, 'GERMANY', userInfo)
+        super(4, 'GERMANY', userInfo);
     }
 }
 class GermanMonthlyMembership extends Membership { }

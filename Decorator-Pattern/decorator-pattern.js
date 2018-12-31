@@ -19,7 +19,8 @@
 // Mixin patterns subsume the Decorator pattern.
 
 // ***** useful when: *****
-// you want to wrap your components with additional functioanlity where you can return/augment/block component behaviour multiple decorators can wrap a component, each of which introducing completely different effects
+// you want to wrap your components with additional functioanlity where you can return/augment/block component behaviour 
+// multiple decorators can wrap a component, each of which introducing completely different effects
 // it’s awkward or not possible to extend an object’s behavior using inheritance.
 
 // note: the decorator IS a component, but it also HAS a component
