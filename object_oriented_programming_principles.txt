@@ -1,3 +1,9 @@
+Object Oriented Basics:
+- Abstraction
+- Inheritance
+- Polymorphism
+- Encapsulation 
+
 Object Oriented Principles:
 
 1. Identify the aspects of your application that vary and seperate them from what stays the same
