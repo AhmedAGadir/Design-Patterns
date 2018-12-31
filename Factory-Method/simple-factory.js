@@ -20,10 +20,6 @@
 // ********* CREATOR *********
 
 class ItemFactory {
-    addItem(type) {
-        let item = this.createItem(type);
-        item.logEffect();
-    }
     createItem(type) {
         switch (type) {
             case 'asteroid':
@@ -37,7 +33,6 @@ class ItemFactory {
         }
     }
 }
-
 
 // ********* PRODUCT INTERFACE *********
 
@@ -73,10 +68,16 @@ class TimeItem {
 // ********* RUN CODE *********
 
 let factory = new ItemFactory();
-factory.addItem('asteroid');
-factory.addItem('time');
-factory.addItem('weapon');
-factory.addItem('health');
+
+let itemStore = [];
+
+itemStore.push(factory.createItem('asteroid'));
+itemStore.push(factory.createItem('time'));
+itemStore.push(factory.createItem('weapon'));
+itemStore.push(factory.createItem('health'));
+
+itemStore.forEach(item => item.logEffect());
+
 
 
 // you can also use the factory pattern statically (i.e. calling .addItem() directly on ItemFactory without any instantiation.
