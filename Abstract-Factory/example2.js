@@ -1,3 +1,9 @@
+// in '../Factory-Method/example2.js', we used the factory method pattern to order different pizzas in each factory
+// here we're using the factory method to order the same pizzas in each factory but we pass different params depending on the factory
+// the params we pass are factories in of themselves, which use the abstract factory pattern to get a specific set of products (the ingredients used in each city)
+
+//  ******** ABSTRACT PRODUCTS SUPERCLASSES AND CONCRETE PRODUCT SUBCLASSES ********
+
 // DOUGH
 class Dough { }
 class ThinCrustDough extends Dough { }
@@ -26,6 +32,8 @@ class EggPlant extends Veggie { }
 class Spinach extends Veggie { }
 class BlackOlives extends Veggie { }
 
+
+// ******** ABSTRACT CREATOR SUPERCLASS ********
 // *** THIS SHOULD BE AN INTERFACE •••
 class IIngredientsFactory {
     createDough() {
@@ -54,6 +62,7 @@ class IIngredientsFactory {
     }
 }
 
+// ******** CONCRETE CREATOR SUBCLASSES ********
 // should be implmenting and not extending
 class NyIngredientsFactory extends IIngredientsFactory {
     createDough() {
@@ -100,6 +109,7 @@ class ChicagoIngredientsFactory extends IIngredientsFactory {
     }
 }
 
+// ******** ABSTRACT PRODUCTS SUPERCLASS ********
 class AbstractPizza {
     constructor() {
         this.ingredients = {
@@ -131,6 +141,7 @@ class AbstractPizza {
     }
 }
 
+// ******** CONCRETE PRODUCTS SUBCLASSES ********
 class CheesePizza extends AbstractPizza {
     constructor(ingredientsFactory) {
         super();
@@ -189,6 +200,7 @@ class PepperoniPizza extends AbstractPizza {
     }
 }
 
+// ******** ABSTRACT CREATOR SUPERCLASS ********
 class AbstractPizzaFactory {
     createPizza(type) {
         // abstract methodd
@@ -203,6 +215,7 @@ class AbstractPizzaFactory {
     }
 }
 
+// ******** CONCRETE PRODUCT SUBCLASSES ********
 class NyPizzaFactory extends AbstractPizzaFactory {
     createPizza(type) {
         let nyIngredientsFactory = new NyIngredientsFactory();
@@ -255,10 +268,10 @@ class ChicagoPizzaFactory extends AbstractPizzaFactory {
     }
 }
 
-// client
+// ******** CLIENT ********
 
-let myShop = new NyPizzaFactory();
-myShop.orderPizza('cheese');
-myShop = new ChicagoPizzaFactory();
-myShop.orderPizza('clam');
-myShop.orderPizza('veggie');
+let myPizzaShop = new NyPizzaFactory();
+myPizzaShop.orderPizza('cheese');
+myPizzaShop = new ChicagoPizzaFactory();
+myPizzaShop.orderPizza('clam');
+myPizzaShop.orderPizza('veggie');
