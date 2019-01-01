@@ -6,7 +6,7 @@ an abstract factory makes use of multiple factory methods
 the diference between abstract factory and factory method is that factory method constructs single products
 while the abstract factory constructs multiple products
 
-this ones good when you have sets of products that it doesnt really make sense to mix and match without
+this ones good when you have sets of products that don't really make sense to mix and match 
 
 e.g. 
 
@@ -16,7 +16,7 @@ macOS [x, y]
 linux [i, j]
 windows [a, b]
 
-it doesnt make sense to mix x (a mac os button) with b (a windows input field)
+it doesnt make sense to mix x (a mac os button) with b (a windows checkbox)
 
 links:
 https://refactoring.guru/design-patterns/abstract-factory
