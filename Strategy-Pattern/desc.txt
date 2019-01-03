@@ -2,6 +2,8 @@ DEFINITIONS:
 
 Defines a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 
+A client can implement multiple strategy interfaces, giving a lot of flexibility to subclasses/instances 
+
 Encapsulates algorithms within classes, making them interchangable and more reusable 
 
 ***** useful when: ***** 
