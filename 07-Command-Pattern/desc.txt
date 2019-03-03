@@ -1,0 +1,12 @@
+Definition:
+Encapsulates a request as an object, thereby letting you paramatize other objects with different requests, que or log requests. And support undoable operations 
+
+Encapsulates a request (i.e. a command), we're not about to encapsulate the receiver of the request, or the sender of the request, were encapsulating the actual request
+
+• the invoker - invokes a given command 
+• when the command is invoked it invokes a method(s) on a receiver 
+
+note:
+(1) you can keep a log of commands which will be easy to undo, as every command has an unexecute method
+e.g. think of the photoshop app, a log of commands executed on the canvas can be kept, and when users want to undo actions, it's very simple (just call unexecute on the command)
+(2) you can construct macro commands i.e. commands that contain multiple executions
