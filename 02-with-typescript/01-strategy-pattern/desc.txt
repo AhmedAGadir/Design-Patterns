@@ -1,0 +1,25 @@
+DEFINITIONS:
+
+Defines a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets algorithms vary independently from clients that use them.
+
+A client can implement multiple strategy interfaces, giving a lot of flexibility to subclasses/instances 
+
+Encapsulates algorithms within classes, making them interchangable and more reusable 
+
+***** useful when: ***** 
+* you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime.
+* you have a lot of similar classes that only differ in the way they execute some behavior.
+* to isolate the business logic of a class from the implementation details of algorithms that may not be as important in the context of that logic.
+* your class has a massive conditional operator that switches between different variants of the same algorithm.
+
+note: the different strategies are normally set on the clients constructor or using some kind of setter 
+
+
+====== links ======
+https://www.youtube.com/watch?v=v9ejT8FO-7I&index=1&list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc
+https://www.youtube.com/watch?v=13nftsQUUE0&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3&index=1
+https://www.youtube.com/watch?v=slfeCvztnT4&list=PLrhzvIcii6GNCgHSj44-gXZeTUVbSPC-3&index=2
+https://www.dofactory.com/javascript/strategy-design-pattern
+https://refactoring.guru/design-patterns/strategy
+https://dzone.com/articles/design-patterns-strategy
+https://sourcemaking.com/design_patterns/strategy 
