@@ -1,14 +1,10 @@
+
 // invoker 
 
-// interface Invoker {
-//     setCommand() {}
-// }
-
 class Remote {
-    constructor() {
-        this.buttonACommand = null;
-    }
-    setButtonACommand(command) {
+    buttonACommand!: Command;
+
+    setButtonACommand(command: Command) {
         this.buttonACommand = command
     }
     pressButtonA() {
@@ -21,15 +17,16 @@ class Remote {
 
 // command
 
-// interface Command {
-//     execute() {}
-//     unexecute() {}
-// }
+interface Command {
+    execute(): void;
+    unexecute(): void;
+}
 
 // the point here is not that were encapsulating something complicated. we're deliberately encapsulating something simple so we can pass it around
-class LightOnCommand {
-    constructor(light) {
-        this.light = light;
+class LightOnCommand implements Command {
+    light: Light;
+    constructor(l: Light) {
+        this.light = l;
     }
     execute() {
         this.light.turnOn();
@@ -42,15 +39,13 @@ class LightOnCommand {
 // receiver 
 
 class Light {
-    constructor() {
-        this.isLightOn = false;
-    }
+    lightOn: boolean = false;
     turnOn() {
-        this.isLightOn = true;
+        this.lightOn = true;
         console.log('turning light on');
     }
     turnOff() {
-        this.isLightOn = false;
+        this.lightOn = false;
         console.log('turning light off');
     }
 }
