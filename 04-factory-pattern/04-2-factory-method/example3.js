@@ -25,8 +25,8 @@ class UKMembershipFactory extends MembershipFactory {
                 return new UKTrialMembership(userInfo);
             case 'monthly':
                 return new UKMonthlyMembership(userInfo);
-            case 'anual':
-                return new UKAnualMembership(userInfo);
+            case 'Annual':
+                return new UKAnnualMembership(userInfo);
         }
     }
 }
@@ -38,8 +38,8 @@ class GermanMembershipFactory extends MembershipFactory {
                 return new GermanTrialMembership(userInfo);
             case 'monthly':
                 return new GermanMonthlyMembership(userInfo);
-            case 'anual':
-                return new GermanAnualMembership(userInfo);
+            case 'Annual':
+                return new GermanAnnualMembership(userInfo);
         }
     }
 }
@@ -74,7 +74,7 @@ class UKTrialMembership extends Membership {
     }
 }
 class UKMonthlyMembership extends Membership { }
-class UKAnualMembership extends Membership { }
+class UKAnnualMembership extends Membership { }
 
 class GermanTrialMembership extends Membership {
     constructor(userInfo) {
@@ -83,7 +83,7 @@ class GermanTrialMembership extends Membership {
     }
 }
 class GermanMonthlyMembership extends Membership { }
-class GermanAnualMembership extends Membership { }
+class GermanAnnualMembership extends Membership { }
 
 
 // RUN CODE
