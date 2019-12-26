@@ -1,0 +1,44 @@
+Strategy:
+    encapsulates algorithms within classes and makes them interchangable. 
+    allows for more flexibility at runtime 
+    favours composition over inheritance 
+
+Observable: 
+    allows notifying and updating a bunch of observables when an observer updates
+
+Decorator:
+    allows wrapping objects to augment their behaviours/properties
+    prevents class explosion 
+
+Simple factory:
+    encapsulates object creation (keeps things neat)
+
+Factory method:
+    same as above, but allows subclasses to group what objects get created (into families)
+
+Abstract factory:
+    same as above, but uses multiple factory methods
+
+Singleton:
+    ensures a class only gets instantiated once
+
+Command:
+    encapsulates a request, good for keeping logs of actions
+    supports undo operations
+
+Adapter:
+    provides a way to make two incompatible interfaces compatible
+    useful when using libraries that may change, deprecation etc.
+
+Facade:
+    provides a simplified interface to talk to a whole system
+    adheres to the 'speak only to your immediate friends' principle
+
+Template method:
+    encapsulates part of an algorithm to subclasses
+    useful for creating hooks and abstract operations
+
+Iterator:
+    provides a way to iterate over similar classes that use different collections (e.g. array, array-lists, hash-tables etc.) without having to know what collections they're using.
+    keeps things neat
+
