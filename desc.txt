@@ -1,17 +1,17 @@
 Strategy:
     encapsulates algorithms within classes and makes them interchangable. 
-    allows for more flexibility at runtime 
+    allows for more flexibility at runtime and for code reuse across classes
     favours composition over inheritance 
 
 Observable: 
     allows notifying and updating a bunch of observables when an observer updates
 
 Decorator:
-    allows wrapping objects to augment their behaviours/properties
+    allows wrapping objects to augment, add to, or block access to their behaviours/properties
     prevents class explosion 
 
 Simple factory:
-    encapsulates object creation (keeps things neat)
+    encapsulates object creation (keeps things neat) 
 
 Factory method:
     same as above, but allows subclasses to group what objects get created (into families)
@@ -41,4 +41,6 @@ Template method:
 Iterator:
     provides a way to iterate over similar classes that use different collections (e.g. array, array-lists, hash-tables etc.) without having to know what collections they're using.
     keeps things neat
+
+Command: 
 
