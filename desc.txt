@@ -39,7 +39,7 @@ Template method:
     useful for creating hooks and abstract operations
 
 Iterator:
-    provides a way to iterate over similar classes that use different collections (e.g. array, array-lists, hash-tables etc.) without having to know what collections they're using.
+    provides a way to iterate over classes that use different collections (e.g. array, array-lists, hash-tables etc.) without having to know what collections they're using.
     keeps things neat
 
 Composite:
@@ -47,12 +47,12 @@ Composite:
     (combos well with iterator pattern)
 
 Null:
-    instead of returning null, and having to do checks in your code, sometimes you can create a Null Object which does implements an interface, but does nothing.
+    instead of returning null, and having to do checks in your code, sometimes you can create a Null Object which implements an interface, but does nothing.
     e.g. null iterator - see HFDP page 380.
 
 State:
     Allows an object to alter its behaviour when its internal state changes
-    much better alternative than a bunch of if-else statements in methods depending on state
+    much better alternative than a bunch of if-else statements in actions depending on state
 
 Proxy: 
     provides a placeholder for another object in order to control access to it.
