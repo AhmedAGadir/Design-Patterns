@@ -58,3 +58,8 @@ Proxy:
     provides a placeholder for another object in order to control access to it.
     useful for protection and if object creation is expensive
 
+MVC: 
+
+more: 
+Bridge, Builder, Chain of responsibility, Flyweight, interpreter, Mediator, Memento, Prototype, Visitor
+
